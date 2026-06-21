@@ -1,3 +1,35 @@
+# CC License Chooser 日本語化フォーク（非公式）
+
+本リポジトリは、Creative Commons が公開している
+`creativecommons/chooser` の非公式日本語化フォークです。
+
+このプロジェクトは Creative Commons 公式による提供、承認、保証を意味しません。
+
+## Original project
+
+- Original repository: `creativecommons/chooser`
+- Original project: Creative Commons License Chooser
+- Copyright: Copyright (c) 2019 Creative Commons
+- License: MIT License
+
+## Changes
+
+- User interface text translated into Japanese.
+- Some explanatory labels adjusted for Japanese readers.
+- Links to official Creative Commons license deeds are preserved where possible.
+
+## Important notice
+
+Creative Commons, CC, and related icons are trademarks of Creative Commons.
+This project is not affiliated with or endorsed by Creative Commons.
+
+## License
+
+This software is distributed under the MIT License.
+See `LICENSE`.
+
+---
+
 ![GitHub contributors](https://img.shields.io/github/contributors/creativecommons/chooser)
 ![GitHub Sponsors](https://img.shields.io/github/sponsors/creativecommons)
 ![GitHub](https://img.shields.io/github/license/creativecommons/chooser)

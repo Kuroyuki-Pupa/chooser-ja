@@ -437,3 +437,217 @@
 .skip-to-content:focus-visible {
   transform: translateY(0);
 }
+
+/* --------------------------------------------------------------------------
+   Layout refinement
+   -------------------------------------------------------------------------- */
+
+body.chooser-page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+  line-height: 1.75;
+}
+
+.chooser-page main {
+  margin-top: 2rem;
+}
+
+.chooser-page h2,
+.chooser-page h3,
+.chooser-page h4 {
+  line-height: 1.35;
+}
+
+.chooser-page .content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.chooser-page form#chooser,
+.chooser-page aside,
+.chooser-page #mark-your-work,
+.chooser-page #help {
+  background: #ffffff;
+  border: 1px solid #d8dee4;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+
+.chooser-page form#chooser > ol {
+  margin-left: 1.5rem;
+}
+
+.chooser-page form#chooser fieldset {
+  margin: 0;
+  padding: 1rem 0;
+  border: 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.chooser-page form#chooser fieldset:last-child {
+  border-bottom: 0;
+}
+
+.chooser-page form#chooser legend {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.chooser-page form#chooser label {
+  font-size: 0.95rem;
+}
+
+.chooser-page input,
+.chooser-page select,
+.chooser-page textarea {
+  max-width: 100%;
+  border: 1px solid #c9d1d9;
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.6rem;
+  font: inherit;
+}
+
+.chooser-page textarea {
+  width: 100%;
+}
+
+.chooser-page button,
+.chooser-page input[type="button"] {
+  border: 1px solid #1f2937;
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  font: inherit;
+}
+
+.chooser-page button:hover,
+.chooser-page input[type="button"]:hover {
+  filter: brightness(0.96);
+}
+
+/* --------------------------------------------------------------------------
+   Recommendation card
+   -------------------------------------------------------------------------- */
+
+.chooser-page #tool-recommendation {
+  margin-bottom: 2rem;
+}
+
+.chooser-page #tool-recommendation .tool,
+.chooser-page aside #empty {
+  border-radius: 0.75rem;
+}
+
+.chooser-page #tool-recommendation .tool {
+  border: 2px solid #111827;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.chooser-page #tool-recommendation h3,
+.chooser-page #tool-recommendation h4 {
+  margin-top: 0;
+}
+
+.chooser-page #tool-recommendation .tool-icons svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.chooser-page #tool-recommendation p {
+  font-size: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Marking output cards
+   -------------------------------------------------------------------------- */
+
+.chooser-page #mark-your-work {
+  margin-top: 2rem;
+}
+
+.chooser-page #mark-your-work details.format {
+  margin-bottom: 1rem;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #d8dee4;
+  border-radius: 0.75rem;
+}
+
+.chooser-page #mark-your-work details.format summary {
+  padding: 0.75rem 1rem;
+  background: #f6f8fa;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.chooser-page #mark-your-work details.format p,
+.chooser-page #mark-your-work details.format textarea {
+  margin: 1rem;
+}
+
+.chooser-page #mark-your-work .mark {
+  word-break: break-word;
+}
+
+.chooser-page #mark-your-work textarea.mark {
+  min-height: 10rem;
+  box-sizing: border-box;
+}
+
+.chooser-page #mark-your-work details.format footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #e5e7eb;
+  background: #f6f8fa;
+}
+
+.chooser-page #mark-your-work details.format footer label {
+  margin-left: 0.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive layout
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 820px) {
+  body.chooser-page {
+    padding: 1rem 0.75rem 3rem;
+  }
+
+  .chooser-page .content {
+    display: block;
+  }
+
+  .chooser-page form#chooser,
+  .chooser-page aside,
+  .chooser-page #mark-your-work,
+  .chooser-page #help {
+    margin-bottom: 1.5rem;
+  }
+
+  .chooser-page form#chooser > ol {
+    margin-left: 1rem;
+    padding-left: 1rem;
+  }
+
+  .chooser-page form#chooser > ol li::before {
+    position: static;
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+
+  .chooser-page #mark-your-work details.format footer {
+    display: block;
+  }
+
+  .chooser-page #mark-your-work details.format footer button {
+    margin-top: 0.75rem;
+  }
+}
+

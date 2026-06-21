@@ -327,39 +327,86 @@ function renderMarkingFormats(state) {
     document.querySelector('#mark-your-work .plain-text.mark').appendChild(templateContent);
 
     // set contents of rich text mark
-    let ccSVG = '<img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">';
-    let bySVG = '<img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">';
-    let saSVG = '<img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">';
-    let ncSVG = '<img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">';
-    let ndSVG = '<img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">';
-    let zeroSVG = '<img src="https://mirrors.creativecommons.org/presskit/icons/zero.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">';
+    let iconStyle = 'height:22px!important;margin-left:3px;vertical-align:text-bottom;';
+let iconBaseURL = 'https://mirrors.creativecommons.org/presskit/icons/';
 
-    const currentTool = state.props.tool;
-    switch (currentTool) {
-        case 'cc-0':
-            ccIconSet = ccSVG + zeroSVG;
-            break;
-        case 'cc-by':
-            ccIconSet = ccSVG + bySVG;
-            break;
-        case 'cc-by-sa':
-            ccIconSet = ccSVG + bySVG + saSVG;
-            break;
-        case 'cc-by-nd':
-            ccIconSet = ccSVG + bySVG + ndSVG;
-            break;
-        case 'cc-by-nc':
-            ccIconSet = ccSVG + bySVG + ncSVG;
-            break;
-        case 'cc-by-nc-sa':
-            ccIconSet = ccSVG + bySVG + ncSVG + saSVG;
-            break;
-        case 'cc-by-nc-nd':
-            ccIconSet = ccSVG + bySVG + ncSVG + ndSVG;
-            break;
-        default:
-            currentTool = '';
-    }
+let ccSVG =
+  '<img style="' +
+  iconStyle +
+  '" src="' +
+  iconBaseURL +
+  'cc.svg?ref=chooser-v1" alt="" aria-hidden="true">';
+
+let bySVG =
+  '<img style="' +
+  iconStyle +
+  '" src="' +
+  iconBaseURL +
+  'by.svg?ref=chooser-v1" alt="" aria-hidden="true">';
+
+let saSVG =
+  '<img style="' +
+  iconStyle +
+  '" src="' +
+  iconBaseURL +
+  'sa.svg?ref=chooser-v1" alt="" aria-hidden="true">';
+
+let ncSVG =
+  '<img style="' +
+  iconStyle +
+  '" src="' +
+  iconBaseURL +
+  'nc.svg?ref=chooser-v1" alt="" aria-hidden="true">';
+
+let ndSVG =
+  '<img style="' +
+  iconStyle +
+  '" src="' +
+  iconBaseURL +
+  'nd.svg?ref=chooser-v1" alt="" aria-hidden="true">';
+
+let zeroSVG =
+  '<img style="' +
+  iconStyle +
+  '" src="' +
+  iconBaseURL +
+  'zero.svg?ref=chooser-v1" alt="" aria-hidden="true">';
+
+let ccIconSet = '';
+let currentTool = state.props.tool;
+
+switch (currentTool) {
+  case 'cc-0':
+    ccIconSet = ccSVG + zeroSVG;
+    break;
+
+  case 'cc-by':
+    ccIconSet = ccSVG + bySVG;
+    break;
+
+  case 'cc-by-sa':
+    ccIconSet = ccSVG + bySVG + saSVG;
+    break;
+
+  case 'cc-by-nd':
+    ccIconSet = ccSVG + bySVG + ndSVG;
+    break;
+
+  case 'cc-by-nc':
+    ccIconSet = ccSVG + bySVG + ncSVG;
+    break;
+
+  case 'cc-by-nc-sa':
+    ccIconSet = ccSVG + bySVG + ncSVG + saSVG;
+    break;
+
+  case 'cc-by-nc-nd':
+    ccIconSet = ccSVG + bySVG + ncSVG + ndSVG;
+    break;
+
+  default:
+    ccIconSet = '';
+}
 
     richTextFullName = document.querySelector('#rich-text-full-name').checked;
 
@@ -799,3 +846,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
 //     });
 // });
 
+/* --------------------------------------------------------------------------
+   Creative Commons icon output
+   -------------------------------------------------------------------------- */
+
+.chooser-page #mark-your-work .rich-text.mark img,
+.chooser-page #mark-your-work .html.mark img {
+  display: inline-block;
+  width: auto;
+  height: 22px;
+  margin-left: 3px;
+  vertical-align: text-bottom;
+}

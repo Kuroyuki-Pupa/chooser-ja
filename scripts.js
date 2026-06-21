@@ -263,13 +263,18 @@ function renderMarkingFormats(state) {
 
     let attribution = state.props.attribution;
 
-    let type = "license";
-    let typeAsVerb = "licensed under";
-    let copyright = ' © ' + attribution.workCreationYear;
-    if (state.props.tool == 'cc-0') {
-        type = "mark";
-        typeAsVerb = "marked";
-        copyright = '';
+    let type = "ライセンス";
+    let typeAsVerb = "基づきライセンス";
+    let copyright = "";
+
+    if (attribution.workCreationYear != "" && attribution.workCreationYear != "1999") {
+      copyright = "（© " + attribution.workCreationYear + "）";
+    }
+
+    if (state.props.tool == "cc-0") {
+      type = "法的ツール";
+      typeAsVerb = "よりパブリックドメイン提供として表示";
+      copyright = "";
     }
 
     // set contents of plain text mark
@@ -369,11 +374,39 @@ function renderMarkingFormats(state) {
     richTextGenericMark = document.querySelector('#rich-text-generic-mark').checked;
 
     if (richTextGenericMark == true) {
-        richTextMark = 'This work' + ' is ' + typeAsVerb  + ' ' + '<a href="' + state.props.toolURL + '">' + markProps.toolName + '</a>' + ccIconSet;
-        console.log('plain text generic mark true');
+      richTextMark =
+        'この作品は、<a href="' +
+        state.props.toolURL +
+        '" rel="license">' +
+        markProps.toolName +
+        "</a>に" +
+        typeAsVerb +
+        "されています。" +
+        ccIconSet;
+
+      console.log("plain text generic mark true");
     } else {
-        richTextMark = '<a href="' + attribution.workLink + '">' + attribution.title + '</a>' + copyright + ' by ' + '<a href="' + attribution.creatorLink + '">' + attribution.creator + '</a>' + ' is ' + typeAsVerb  + ' ' + '<a href="' + state.props.toolURL + '">' + markProps.toolName + '</a>' + ccIconSet;
-        console.log('plain text generic mark false');
+      richTextMark =
+        '<a href="' +
+        attribution.workLink +
+        '">「' +
+        attribution.title +
+        "」</a>" +
+        copyright +
+        "（<a href=\"" +
+        attribution.creatorLink +
+        '">' +
+        attribution.creator +
+        "</a>）は、<a href=\"" +
+        state.props.toolURL +
+        '" rel="license">' +
+        markProps.toolName +
+        "</a>に" +
+        typeAsVerb +
+        "されています。" +
+        ccIconSet;
+
+      console.log("plain text generic mark false");
     }
 
     document.querySelector('#mark-your-work .rich-text.mark').innerHTML = richTextMark;
@@ -393,11 +426,39 @@ function renderMarkingFormats(state) {
     htmlGenericMark = document.querySelector('#html-generic-mark').checked;
 
     if (htmlGenericMark == true) {
-        htmlMark = 'This work' + ' is ' + typeAsVerb  + ' ' + '<a href="' + state.props.toolURL + '">' + markProps.toolName + '</a>' + ccIconSet;
-        console.log('plain text generic mark true');
+      htmlMark =
+        'この作品は、<a href="' +
+        state.props.toolURL +
+        '" rel="license">' +
+        markProps.toolName +
+        "</a>に" +
+        typeAsVerb +
+        "されています。" +
+        ccIconSet;
+
+      console.log("plain text generic mark true");
     } else {
-        htmlMark = '<a href="' + attribution.workLink + '">' + attribution.title + '</a>' + copyright + ' by ' + '<a href="' + attribution.creatorLink + '">' + attribution.creator + '</a>' + ' is ' + typeAsVerb  + ' ' + '<a href="' + state.props.toolURL + '">' + markProps.toolName + '</a>' + ccIconSet;
-        console.log('plain text generic mark false');
+      htmlMark =
+        '<a href="' +
+        attribution.workLink +
+        '">「' +
+        attribution.title +
+        "」</a>" +
+        copyright +
+        "（<a href=\"" +
+        attribution.creatorLink +
+        '">' +
+        attribution.creator +
+        "</a>）は、<a href=\"" +
+        state.props.toolURL +
+        '" rel="license">' +
+        markProps.toolName +
+        "</a>に" +
+        typeAsVerb +
+        "されています。" +
+        ccIconSet;
+
+      console.log("plain text generic mark false");
     }
 
     //defaultHTML = '<p xmlns:cc="http://creativecommons.org/ns#">This work is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-SA 4.0<img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt=""><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt=""><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt=""></a></p>';

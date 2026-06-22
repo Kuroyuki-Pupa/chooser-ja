@@ -846,15 +846,3 @@ document.addEventListener("DOMContentLoaded", (event) => {
 //     });
 // });
 
-/* --------------------------------------------------------------------------
-   Creative Commons icon output
-   -------------------------------------------------------------------------- */
-
-.chooser-page #mark-your-work .rich-text.mark img,
-.chooser-page #mark-your-work .html.mark img {
-  display: inline-block;
-  width: auto;
-  height: 22px;
-  margin-left: 3px;
-  vertical-align: text-bottom;
-}

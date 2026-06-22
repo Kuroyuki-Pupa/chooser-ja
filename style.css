@@ -994,3 +994,31 @@ body.chooser-page {
   margin-left: 3px;
   vertical-align: text-bottom;
 }
+
+/* --------------------------------------------------------------------------
+   Creative Commons icons in recommendation card
+   -------------------------------------------------------------------------- */
+
+.chooser-page #tool-recommendation .recommendation-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  margin: 0.75rem 0 0;
+}
+
+.chooser-page #tool-recommendation .recommendation-icons img,
+.chooser-page #tool-recommendation dt img {
+  display: inline-block;
+  width: auto;
+  height: 22px;
+  margin-right: 0.35rem;
+  vertical-align: text-bottom;
+}
+
+.chooser-page #tool-recommendation dt {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 700;
+}

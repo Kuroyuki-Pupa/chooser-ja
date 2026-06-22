@@ -284,14 +284,21 @@ function enhanceRecommendationIcons(container, tool) {
     return;
   }
 
-  const title = container.querySelector('header h3');
+  const header = container.querySelector('header');
 
-  if (title && !title.querySelector('.recommendation-icons')) {
+  if (header && !header.querySelector('.recommendation-icons')) {
     const iconRow = document.createElement('span');
     iconRow.className = 'recommendation-icons';
     iconRow.setAttribute('aria-hidden', 'true');
     iconRow.innerHTML = buildToolIconSetHTML(tool);
-    title.insertBefore(iconRow, title.firstChild);
+
+    const title = header.querySelector('h3');
+
+    if (title) {
+      header.insertBefore(iconRow, title);
+    } else {
+      header.insertBefore(iconRow, header.firstChild);
+    }
   }
 
   const conditionIconMap = {

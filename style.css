@@ -1000,11 +1000,12 @@ body.chooser-page {
    -------------------------------------------------------------------------- */
 
 .chooser-page #tool-recommendation .recommendation-icons {
-  display: flex;
-  flex-wrap: wrap;
+  display: inline-flex;
+  flex-wrap: nowrap;
   gap: 0.35rem;
   align-items: center;
-  margin: 0.75rem 0 0;
+  margin-right: 0.55rem;
+  vertical-align: middle;
 }
 
 .chooser-page #tool-recommendation .recommendation-icons img,
@@ -1012,8 +1013,19 @@ body.chooser-page {
   display: inline-block;
   width: auto;
   height: 22px;
-  margin-right: 0.35rem;
   vertical-align: text-bottom;
+}
+
+.chooser-page #tool-recommendation dt img {
+  margin-right: 0.35rem;
+}
+
+.chooser-page #tool-recommendation header h3 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .chooser-page #tool-recommendation dt {

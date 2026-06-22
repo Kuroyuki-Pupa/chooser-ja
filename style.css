@@ -999,12 +999,38 @@ body.chooser-page {
    Creative Commons icons in recommendation card
    -------------------------------------------------------------------------- */
 
-.chooser-page #tool-recommendation .recommendation-icons {
+.chooser-page #tool-recommendation .tool header {
+  display: grid;
+  justify-content: center;
+  justify-items: start;
+  row-gap: 0.15rem;
+  text-align: left;
+}
+
+.chooser-page #tool-recommendation header h3 {
   display: inline-flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 0.35rem;
   align-items: center;
-  margin-right: 0.55rem;
+  justify-content: flex-start;
+  width: auto;
+  margin: 0;
+  text-align: left;
+}
+
+.chooser-page #tool-recommendation header h4 {
+  width: auto;
+  margin: 0.15rem 0 0;
+  text-align: left;
+}
+
+.chooser-page #tool-recommendation .recommendation-icons {
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+  align-items: center;
+  margin-right: 0.45rem;
   vertical-align: middle;
 }
 
@@ -1018,14 +1044,6 @@ body.chooser-page {
 
 .chooser-page #tool-recommendation dt img {
   margin-right: 0.35rem;
-}
-
-.chooser-page #tool-recommendation header h3 {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  align-items: center;
-  justify-content: center;
 }
 
 .chooser-page #tool-recommendation dt {

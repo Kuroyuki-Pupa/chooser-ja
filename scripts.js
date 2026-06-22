@@ -234,24 +234,103 @@ function clearStepsAfterCursor(fieldsets, state) {
     });
 }
 
+// function to build Creative Commons icon markup
+function buildCCIconHTML(iconName) {
+  const iconStyle = 'height:22px!important;margin-right:0.35rem;vertical-align:text-bottom;';
+  const iconBaseURL = 'https://mirrors.creativecommons.org/presskit/icons/';
+
+  return (
+    '<img class="cc-license-icon" style="' +
+    iconStyle +
+    '" src="' +
+    iconBaseURL +
+    iconName +
+    '.svg?ref=chooser-v1" alt="" aria-hidden="true">'
+  );
+}
+
+// function to build icon set for each selected license
+function buildToolIconSetHTML(tool) {
+  switch (tool) {
+    case 'cc-0':
+      return buildCCIconHTML('cc') + buildCCIconHTML('zero');
+
+    case 'cc-by':
+      return buildCCIconHTML('cc') + buildCCIconHTML('by');
+
+    case 'cc-by-sa':
+      return buildCCIconHTML('cc') + buildCCIconHTML('by') + buildCCIconHTML('sa');
+
+    case 'cc-by-nd':
+      return buildCCIconHTML('cc') + buildCCIconHTML('by') + buildCCIconHTML('nd');
+
+    case 'cc-by-nc':
+      return buildCCIconHTML('cc') + buildCCIconHTML('by') + buildCCIconHTML('nc');
+
+    case 'cc-by-nc-sa':
+      return buildCCIconHTML('cc') + buildCCIconHTML('by') + buildCCIconHTML('nc') + buildCCIconHTML('sa');
+
+    case 'cc-by-nc-nd':
+      return buildCCIconHTML('cc') + buildCCIconHTML('by') + buildCCIconHTML('nc') + buildCCIconHTML('nd');
+
+    default:
+      return '';
+  }
+}
+
+// function to add icons inside the recommendation card
+function enhanceRecommendationIcons(container, tool) {
+  if (!container) {
+    return;
+  }
+
+  const header = container.querySelector('header');
+
+  if (header && !header.querySelector('.recommendation-icons')) {
+    const iconRow = document.createElement('div');
+    iconRow.className = 'recommendation-icons';
+    iconRow.innerHTML = buildToolIconSetHTML(tool);
+    header.appendChild(iconRow);
+  }
+
+  const conditionIconMap = {
+    'CC0': 'zero',
+    'BY': 'by',
+    'NC': 'nc',
+    'SA': 'sa',
+    'ND': 'nd'
+  };
+
+  container.querySelectorAll('dt').forEach((term) => {
+    const label = term.textContent.trim();
+
+    if (conditionIconMap[label] && !term.querySelector('img')) {
+      term.insertAdjacentHTML('afterbegin', buildCCIconHTML(conditionIconMap[label]));
+    }
+  });
+}
+
 // function to render "tool recommendation",
 // if valid tool from state.parts and/or state.current
 function renderToolRec(state) {
+  const recommendation = document.querySelector('#tool-recommendation');
+  const recommendationTool = document.querySelector('#tool-recommendation .tool');
 
-    if (state.props.tool != 'unknown' ) {
-        document.querySelector('#tool-recommendation').classList.remove('disable');
+  if (state.props.tool != 'unknown') {
+    recommendation.classList.remove('disable');
 
-        let tool = state.props.tool;
-        let template = document.getElementById(tool);
-        let templateContent = template.content.cloneNode(true);
-        document.querySelector('#tool-recommendation .tool').textContent = '';
-        document.querySelector('#tool-recommendation .tool').appendChild(templateContent);
-    }
-    else if (state.props.tool == 'unknown') {
-        document.querySelector('#tool-recommendation').classList.add('disable');
-        document.querySelector('#tool-recommendation .tool').textContent = '';
-    }
+    let tool = state.props.tool;
+    let template = document.getElementById(tool);
+    let templateContent = template.content.cloneNode(true);
 
+    recommendationTool.textContent = '';
+    recommendationTool.appendChild(templateContent);
+
+    enhanceRecommendationIcons(recommendationTool, tool);
+  } else if (state.props.tool == 'unknown') {
+    recommendation.classList.add('disable');
+    recommendationTool.textContent = '';
+  }
 }
 
 // render specifically the mark formats subsections

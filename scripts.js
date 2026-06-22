@@ -328,86 +328,86 @@ function renderMarkingFormats(state) {
 
     // set contents of rich text mark
     let iconStyle = 'height:22px!important;margin-left:3px;vertical-align:text-bottom;';
-let iconBaseURL = 'https://mirrors.creativecommons.org/presskit/icons/';
+    let iconBaseURL = 'https://mirrors.creativecommons.org/presskit/icons/';
 
-let ccSVG =
-  '<img style="' +
-  iconStyle +
-  '" src="' +
-  iconBaseURL +
-  'cc.svg?ref=chooser-v1" alt="" aria-hidden="true">';
+    let ccSVG =
+      '<img style="' +
+      iconStyle +
+      '" src="' +
+      iconBaseURL +
+      'cc.svg?ref=chooser-v1" alt="" aria-hidden="true">';
 
-let bySVG =
-  '<img style="' +
-  iconStyle +
-  '" src="' +
-  iconBaseURL +
-  'by.svg?ref=chooser-v1" alt="" aria-hidden="true">';
+    let bySVG =
+      '<img style="' +
+      iconStyle +
+     '" src="' +
+      iconBaseURL +
+      'by.svg?ref=chooser-v1" alt="" aria-hidden="true">';
 
-let saSVG =
-  '<img style="' +
-  iconStyle +
-  '" src="' +
-  iconBaseURL +
-  'sa.svg?ref=chooser-v1" alt="" aria-hidden="true">';
+    let saSVG =
+      '<img style="' +
+      iconStyle +
+      '" src="' +
+      iconBaseURL +
+      'sa.svg?ref=chooser-v1" alt="" aria-hidden="true">';
 
-let ncSVG =
-  '<img style="' +
-  iconStyle +
-  '" src="' +
-  iconBaseURL +
-  'nc.svg?ref=chooser-v1" alt="" aria-hidden="true">';
+    let ncSVG =
+      '<img style="' +
+      iconStyle +
+      '" src="' +
+      iconBaseURL +
+      'nc.svg?ref=chooser-v1" alt="" aria-hidden="true">';
 
-let ndSVG =
-  '<img style="' +
-  iconStyle +
-  '" src="' +
-  iconBaseURL +
-  'nd.svg?ref=chooser-v1" alt="" aria-hidden="true">';
+    let ndSVG =
+      '<img style="' +
+      iconStyle +
+      '" src="' +
+      iconBaseURL +
+      'nd.svg?ref=chooser-v1" alt="" aria-hidden="true">';
 
-let zeroSVG =
-  '<img style="' +
-  iconStyle +
-  '" src="' +
-  iconBaseURL +
-  'zero.svg?ref=chooser-v1" alt="" aria-hidden="true">';
+    let zeroSVG =
+      '<img style="' +
+      iconStyle +
+      '" src="' +
+      iconBaseURL +
+      'zero.svg?ref=chooser-v1" alt="" aria-hidden="true">';
 
-let ccIconSet = '';
-let currentTool = state.props.tool;
+    let ccIconSet = '';
+    const currentTool = state.props.tool;
 
-switch (currentTool) {
-  case 'cc-0':
-    ccIconSet = ccSVG + zeroSVG;
-    break;
+    switch (currentTool) {
+      case 'cc-0':
+        ccIconSet = ccSVG + zeroSVG;
+        break;
 
-  case 'cc-by':
-    ccIconSet = ccSVG + bySVG;
-    break;
+      case 'cc-by':
+        ccIconSet = ccSVG + bySVG;
+        break;
 
-  case 'cc-by-sa':
-    ccIconSet = ccSVG + bySVG + saSVG;
-    break;
+      case 'cc-by-sa':
+        ccIconSet = ccSVG + bySVG + saSVG;
+        break;
 
-  case 'cc-by-nd':
-    ccIconSet = ccSVG + bySVG + ndSVG;
-    break;
+      case 'cc-by-nd':
+        ccIconSet = ccSVG + bySVG + ndSVG;
+        break;
 
-  case 'cc-by-nc':
-    ccIconSet = ccSVG + bySVG + ncSVG;
-    break;
+      case 'cc-by-nc':
+        ccIconSet = ccSVG + bySVG + ncSVG;
+        break;
 
-  case 'cc-by-nc-sa':
-    ccIconSet = ccSVG + bySVG + ncSVG + saSVG;
-    break;
+      case 'cc-by-nc-sa':
+        ccIconSet = ccSVG + bySVG + ncSVG + saSVG;
+        break;
 
-  case 'cc-by-nc-nd':
-    ccIconSet = ccSVG + bySVG + ncSVG + ndSVG;
-    break;
+      case 'cc-by-nc-nd':
+        ccIconSet = ccSVG + bySVG + ncSVG + ndSVG;
+        break;
 
-  default:
-    ccIconSet = '';
-}
-
+      default:
+        ccIconSet = '';
+    }
+    
     richTextFullName = document.querySelector('#rich-text-full-name').checked;
 
     if (richTextFullName == true) {

@@ -284,13 +284,14 @@ function enhanceRecommendationIcons(container, tool) {
     return;
   }
 
-  const header = container.querySelector('header');
+  const title = container.querySelector('header h3');
 
-  if (header && !header.querySelector('.recommendation-icons')) {
-    const iconRow = document.createElement('div');
+  if (title && !title.querySelector('.recommendation-icons')) {
+    const iconRow = document.createElement('span');
     iconRow.className = 'recommendation-icons';
+    iconRow.setAttribute('aria-hidden', 'true');
     iconRow.innerHTML = buildToolIconSetHTML(tool);
-    header.appendChild(iconRow);
+    title.insertBefore(iconRow, title.firstChild);
   }
 
   const conditionIconMap = {

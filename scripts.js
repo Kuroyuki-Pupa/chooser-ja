@@ -495,107 +495,116 @@ function renderMarkingFormats(state) {
         ccIconSet = '';
     }
     
-    richTextFullName = document.querySelector('#rich-text-full-name').checked;
+richTextFullName = document.querySelector('#rich-text-full-name').checked;
 
-    if (richTextFullName == true) {
-        markProps.toolName = state.props.toolLong;
+if (richTextFullName == true) {
+  markProps.toolName = state.props.toolLong;
+} else {
+  markProps.toolName = state.props.toolShort;
+}
 
-    } else {
-        markProps.toolName = state.props.toolShort;
-    }
+function escapeHTML(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
 
-    // determine if generic mark is toggled.
-    richTextGenericMark = document.querySelector('#rich-text-generic-mark').checked;
+function safeURL(value) {
+  const url = String(value ?? '').trim();
 
-    if (richTextGenericMark == true) {
-      richTextMark =
-        'この作品は、<a href="' +
-        state.props.toolURL +
-        '" rel="license">' +
-        markProps.toolName +
-        '</a>に' +
-        typeAsVerb +
-        'されています。' +
-        ccIconSet;
+  if (!isValidURL(url)) {
+    return '';
+  }
 
-      console.log("rich text generic mark true");
-    } else {
-      richTextMark =
-        '<a href="' +
-        attribution.creatorLink +
-        '">' +
-        attribution.creator +
-        '</a>による<a href="' +
-        attribution.workLink +
-        '">「' +
-        attribution.title +
-        '」</a>' +
-        copyright +
-        'は、<a href="' +
-        state.props.toolURL +
-        '" rel="license">' +
-        markProps.toolName +
-        '</a>に' +
-        typeAsVerb +
-        'されています。' +
-        ccIconSet;
+  return url;
+}
 
-      console.log("rich text generic mark false");
-    }
+function linkedText(text, url, attributes = '') {
+  const escapedText = escapeHTML(text);
+  const href = safeURL(url);
 
-    document.querySelector('#mark-your-work .rich-text.mark').innerHTML = richTextMark;
+  if (href == '') {
+    return escapedText;
+  }
 
+  return '<a href="' + escapeHTML(href) + '"' + attributes + '>' + escapedText + '</a>';
+}
 
-    // set contents of HTML mark
-    htmlFullName = document.querySelector('#html-full-name').checked;
+function licenseLink(toolName) {
+  return linkedText(toolName, state.props.toolURL, ' rel="license"');
+}
 
-    if (htmlFullName == true) {
-        markProps.toolName = state.props.toolLong;
+function workTitleLink() {
+  return linkedText('「' + attribution.title + '」', attribution.workLink);
+}
 
-    } else {
-        markProps.toolName = state.props.toolShort;
-    }
+function creatorNameLink() {
+  return linkedText(attribution.creator, attribution.creatorLink);
+}
 
-    // determine if generic mark is toggled.
-    htmlGenericMark = document.querySelector('#html-generic-mark').checked;
+function buildAttributionHTML(toolName, genericMark) {
+  const linkedLicense = licenseLink(toolName);
 
-    if (htmlGenericMark == true) {
-      htmlMark =
-        'この作品は、<a href="' +
-        state.props.toolURL +
-        '" rel="license">' +
-        markProps.toolName +
-        '</a>に' +
-        typeAsVerb +
-        'されています。' +
-        ccIconSet;
+  if (genericMark == true) {
+    return (
+      'この作品は、' +
+      linkedLicense +
+      'に' +
+      typeAsVerb +
+      'されています。' +
+      ccIconSet
+    );
+  }
 
-      console.log("html generic mark true");
-    } else {
-      htmlMark =
-        '<a href="' +
-        attribution.creatorLink +
-        '">' +
-        attribution.creator +
-        '</a>による<a href="' +
-        attribution.workLink +
-        '">「' +
-        attribution.title +
-        '」</a>' +
-        copyright +
-        'は、<a href="' +
-        state.props.toolURL +
-        '" rel="license">' +
-        markProps.toolName +
-        '</a>に' +
-        typeAsVerb +
-        'されています。' +
-        ccIconSet;
+  return (
+    creatorNameLink() +
+    'による' +
+    workTitleLink() +
+    copyright +
+    'は、' +
+    linkedLicense +
+    'に' +
+    typeAsVerb +
+    'されています。' +
+    ccIconSet
+  );
+}
 
-      console.log("html generic mark false");
-    }
+// determine if generic mark is toggled.
+richTextGenericMark = document.querySelector('#rich-text-generic-mark').checked;
+richTextMark = buildAttributionHTML(markProps.toolName, richTextGenericMark);
 
-    document.querySelector('#mark-your-work .html.mark').value = htmlMark;
+if (richTextGenericMark == true) {
+  console.log('rich text generic mark true');
+} else {
+  console.log('rich text generic mark false');
+}
+
+document.querySelector('#mark-your-work .rich-text.mark').innerHTML = richTextMark;
+
+// set contents of HTML mark
+htmlFullName = document.querySelector('#html-full-name').checked;
+
+if (htmlFullName == true) {
+  markProps.toolName = state.props.toolLong;
+} else {
+  markProps.toolName = state.props.toolShort;
+}
+
+// determine if generic mark is toggled.
+htmlGenericMark = document.querySelector('#html-generic-mark').checked;
+htmlMark = buildAttributionHTML(markProps.toolName, htmlGenericMark);
+
+if (htmlGenericMark == true) {
+  console.log('html generic mark true');
+} else {
+  console.log('html generic mark false');
+}
+
+document.querySelector('#mark-your-work .html.mark').value = htmlMark;
 }
 
 

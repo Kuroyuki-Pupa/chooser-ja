@@ -906,28 +906,94 @@ function watchMarkToggles(toggles, state) {
 }
 
 function watchMarkCopiers(copiers, state) {
-    
-    function copyToClipboard (text) {
-        let temp = document.createElement("textarea");
-        document.body.appendChild(temp);
-        temp.value = text;
-        temp.select();
-        document.execCommand("copy");
-        document.body.removeChild(temp);
+  function getMarkText(button) {
+    const formatBlock = button.closest('details.format');
+    const mark = formatBlock ? formatBlock.querySelector('.mark') : button.parentNode.parentNode.querySelector('.mark');
+
+    if (!mark) {
+      return '';
     }
 
-    copiers.forEach((element, index) => {
+    if (mark.value != null) {
+      return mark.value;
+    }
 
-        element.addEventListener("click", (event) => {
+    return mark.innerHTML;
+  }
 
-            if (element.parentNode.parentNode.querySelector('.mark').value != null) {
-                copyToClipboard(element.parentNode.parentNode.querySelector('.mark').value);
-            } else {
-                copyToClipboard(element.parentNode.parentNode.querySelector('.mark').innerHTML);
-            }
-        });
+  function getCopyStatus(button) {
+    let status = button.parentNode.querySelector('.copy-status');
 
+    if (!status) {
+      status = document.createElement('span');
+      status.className = 'copy-status';
+      status.setAttribute('aria-live', 'polite');
+      status.setAttribute('role', 'status');
+      button.parentNode.appendChild(status);
+    }
+
+    return status;
+  }
+
+  function setCopyStatus(button, message) {
+    const status = getCopyStatus(button);
+
+    status.textContent = message;
+
+    if (button.copyStatusTimer) {
+      window.clearTimeout(button.copyStatusTimer);
+    }
+
+    button.copyStatusTimer = window.setTimeout(() => {
+      status.textContent = '';
+    }, 2500);
+  }
+
+  function fallbackCopyToClipboard(text) {
+    const temp = document.createElement('textarea');
+
+    temp.value = text;
+    temp.setAttribute('readonly', '');
+    temp.style.position = 'fixed';
+    temp.style.top = '-9999px';
+    temp.style.left = '-9999px';
+
+    document.body.appendChild(temp);
+    temp.select();
+
+    const success = document.execCommand('copy');
+
+    document.body.removeChild(temp);
+
+    return success;
+  }
+
+  async function copyToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+
+    return fallbackCopyToClipboard(text);
+  }
+
+  copiers.forEach((element, index) => {
+    element.addEventListener('click', async (event) => {
+      const text = getMarkText(element);
+
+      if (text == '') {
+        setCopyStatus(element, 'コピーする内容がありません。');
+        return;
+      }
+
+      try {
+        await copyToClipboard(text);
+        setCopyStatus(element, 'コピーしました。');
+      } catch (error) {
+        setCopyStatus(element, 'コピーできませんでした。手動で選択してコピーしてください。');
+      }
     });
+  });
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -958,3 +1024,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
 //     });
 // });
 
+/* --------------------------------------------------------------------------
+   Copy status feedback
+   -------------------------------------------------------------------------- */
+
+.chooser-page .copy-status {
+  display: inline-block;
+  margin-left: 0.75rem;
+  color: var(--chooser-muted, #4b5563);
+  font-size: 0.95rem;
+  font-weight: 700;
+}

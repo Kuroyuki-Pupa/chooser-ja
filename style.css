@@ -134,25 +134,42 @@
     counter-reset: chooser-counter;
 }
 
-.chooser-page form#chooser > ol li {
+.chooser-page form#chooser > ol > li {
+    position: relative;
     counter-increment: chooser-counter;
+    padding-left: 3.25rem;
 }
-.chooser-page form#chooser > ol li::before {
+
+.chooser-page form#chooser > ol > li::before {
     position: absolute;
-    --size: 32px;
-    left: calc(-1 * var(--size) - 25px);
-    min-height: 2em;
-    min-width: 2em;
-    padding-top: .4em;
+    top: 1rem;
+    left: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    min-width: 2rem;
+    min-height: 2rem;
+    padding: 0;
     box-sizing: border-box;
 
     content: counter(chooser-counter);
     font-weight: bold;
+    line-height: 1;
     border-radius: 200px;
     background: var(--vocabulary-neutral-color-lighter-gray);
     color: black;
     text-align: center;
     vertical-align: middle;
+}
+
+.chooser-page form#chooser > ol > li li {
+    counter-increment: none;
+}
+
+.chooser-page form#chooser > ol > li li::before {
+    content: none;
 }
 
 .chooser-page form#chooser legend {
@@ -186,6 +203,15 @@
 
 .chooser-page form#chooser #waive-your-copyright div {
     margin-bottom: 1em;
+}
+
+.chooser-page form#chooser #waive-your-copyright ul {
+    margin: 0.25rem 0 1rem 2rem;
+    padding-left: 1rem;
+}
+
+.chooser-page form#chooser #waive-your-copyright ul li {
+    margin-bottom: 0.2rem;
 }
 
 .chooser-page form#chooser #attribution-details input {
@@ -632,15 +658,15 @@ body.chooser-page {
 /* Form readability and target size */
 
 .chooser-page form#chooser > ol {
-  margin: 0 0 0 1.5rem;
-  padding-left: 1rem;
+  margin: 0;
+  padding-left: 0;
 }
 
 .chooser-page form#chooser > ol > li {
   margin-bottom: 1.25rem;
 }
 
-.chooser-page form#chooser > ol li::before {
+.chooser-page form#chooser > ol > li::before {
   background: var(--chooser-accent-soft);
   color: var(--chooser-accent-dark);
 }
@@ -955,14 +981,18 @@ body.chooser-page {
     padding-left: 0;
   }
 
-  .chooser-page form#chooser > ol li::before {
+  .chooser-page form#chooser > ol > li {
+    padding-left: 0;
+  }
+
+  .chooser-page form#chooser > ol > li::before {
     position: static;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     margin: 0 0.5rem 0.5rem 0;
   }
-
+    
   .chooser-page form#chooser label {
     display: flex;
     margin-right: 0;

@@ -795,57 +795,73 @@ function isValidYear(year) {
 
 // Displays error message below input field
 function showError(input, message) {
-    clearError(input);
-    input.classList.add('input-error');
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'error-message';
-    errorDiv.textContent = message;
-    errorDiv.setAttribute('role', 'alert');
-    input.parentNode.insertBefore(errorDiv, input.nextSibling);
+  clearError(input);
+
+  input.classList.add('input-error');
+  input.setAttribute('aria-invalid', 'true');
+
+  const errorDiv = document.createElement('div');
+  const errorId = input.id + '-error';
+
+  errorDiv.id = errorId;
+  errorDiv.className = 'error-message';
+  errorDiv.textContent = message;
+  errorDiv.setAttribute('role', 'alert');
+
+  input.setAttribute('aria-describedby', errorId);
+  input.parentNode.insertBefore(errorDiv, input.nextSibling);
 }
 
 // Removes error message and styling from input
 function clearError(input) {
-    input.classList.remove('input-error');
-    const nextElement = input.nextSibling;
-    if (nextElement && nextElement.classList && nextElement.classList.contains('error-message')) {
-        nextElement.remove();
-    }
+  input.classList.remove('input-error');
+  input.removeAttribute('aria-invalid');
+  input.removeAttribute('aria-describedby');
+
+  const errorElement = document.getElementById(input.id + '-error');
+
+  if (errorElement) {
+    errorElement.remove();
+  }
 }
 
 // Validates individual input based on field type
 function validateInput(input) {
-    const inputId = input.id;
-    const value = input.value.trim();
-    clearError(input);
-    
-    if (value === '') return true;
-    
-    switch(inputId) {
-        case 'work-link':
-            if (!isValidURL(value)) {
-                showError(input, 'Please enter a valid URL starting with http:// or https:// (e.g., https://example.com)');
-                return false;
-            }
-            break;
-            
-        case 'creator-link':
-            if (!isValidURL(value)) {
-                showError(input, 'Please enter a valid URL starting with http:// or https:// (e.g., https://example.com/profile)');
-                return false;
-            }
-            break;
-            
-        case 'work-creation-year':
-            if (!isValidYear(value)) {
-                const currentYear = new Date().getFullYear();
-                showError(input, `Please enter a valid 4-digit year between 1000 and ${currentYear + 5} (e.g., ${currentYear})`);
-                return false;
-            }
-            break;
-    }
-    
+  const inputId = input.id;
+  const value = input.value.trim();
+
+  clearError(input);
+
+  if (value === '') {
     return true;
+  }
+
+  switch (inputId) {
+    case 'work-link':
+      if (!isValidURL(value)) {
+        showError(input, '作品へのリンクは、http:// または https:// で始まるURLで入力してください。例：https://example.com');
+        return false;
+      }
+      break;
+
+    case 'creator-link':
+      if (!isValidURL(value)) {
+        showError(input, 'クリエイターのプロフィールへのリンクは、http:// または https:// で始まるURLで入力してください。例：https://example.com/profile');
+        return false;
+      }
+      break;
+
+    case 'work-creation-year':
+      if (!isValidYear(value)) {
+        const currentYear = new Date().getFullYear();
+
+        showError(input, '作成年は、1000年から' + (currentYear + 5) + '年までの4桁の年で入力してください。例：' + currentYear);
+        return false;
+      }
+      break;
+  }
+
+  return true;
 }
 
 // Validates all attribution detail inputs at once

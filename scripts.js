@@ -149,7 +149,7 @@ function setStateProps(index, state) {
 
         // set shortName
         shortName = state.props.tool.replace(/cc-/, '');
-        state.props.toolURL = 'https://creativecommons.org/licenses/'+ shortName +'/4.0/'; 
+        state.props.toolURL = 'https://creativecommons.org/licenses/' + shortName + '/4.0/deed.ja'; 
     }
 
     if (state.props.tool != 'unknown' ) {
@@ -165,7 +165,7 @@ function setStateProps(index, state) {
         state.props.toolShort = 'CC0 1.0';
 
         // set toolFull
-        state.props.toolURL = 'https://creativecommons.org/publicdomain/zero/1.0/';
+        state.props.toolURL = 'https://creativecommons.org/publicdomain/zero/1.0/deed.ja';
     }
 
     state.props.cursor = index;

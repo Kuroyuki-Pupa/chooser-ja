@@ -1023,15 +1023,3 @@ document.addEventListener("DOMContentLoaded", (event) => {
     
 //     });
 // });
-
-/* --------------------------------------------------------------------------
-   Copy status feedback
-   -------------------------------------------------------------------------- */
-
-.chooser-page .copy-status {
-  display: inline-block;
-  margin-left: 0.75rem;
-  color: var(--chooser-muted, #4b5563);
-  font-size: 0.95rem;
-  font-weight: 700;
-}

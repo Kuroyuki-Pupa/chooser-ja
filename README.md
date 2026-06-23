@@ -22,6 +22,12 @@
 - 非公式フォークとして不要な公式サイト導線を整理。
 - GitHub Pagesで単体公開できるように、ルート直下の `index.html`、`style.css`、`scripts.js` を使用。
 
+## ファイル構成
+
+このフォークでは、GitHub Pagesで公開するファイルとして、ルート直下の `index.html`、`style.css`、`scripts.js` を使用します。
+
+`src/` が残っている場合、それは元リポジトリ由来の控えであり、公開ページの表示には使用していません。
+
 ## 注意
 
 Creative Commons、CC、および関連アイコンは Creative Commons の商標です。

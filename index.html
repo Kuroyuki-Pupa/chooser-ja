@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<title>ライセンス選択ツール</title>
+<title>クリエイティブ・コモンズ・ライセンスを選ぶツール</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,12 +17,12 @@
     <div class="site-title-group">
       <h1>
         <a class="identity-logo product" href="#main-content-marker">
-          ライセンス選択ツール
+          クリエイティブ・コモンズ・ライセンスを選ぶツール
         </a>
       </h1>
 
       <p class="site-subtitle">
-        Creative Commons License Chooser 非公式日本語化フォーク
+        非公式・わかりやすい日本語版
       </p>
     </div>
 
@@ -200,15 +200,34 @@
             <legend>著作権を放棄する</legend>
             <!-- [T]: needs another box here to verify ownership similar to "confirmation" -->
 
-            <div>
-                <input type="checkbox" id="waive" name="waive" value="waive" />
-                <label for="waive">私は、本作品に関して、法律上可能な範囲で、すべての関連する請求および訴権とともに、すべての著作権ならびに関連権または隣接権をここに放棄します。</label>
-            </div>
+             <div>
+
+              <input type="checkbox" id="waive" name="waive" value="waive" />
+
+              <label for="waive">
+              私は、この作品について、法律で認められる範囲で、次の権利をすべて放棄します。
+              </label>
+
+              <ul>
+               <li>著作権</li>
+               <li>関連権</li>
+               <li>隣接権</li>
+               <li>これらの権利に関する請求権</li>
+               <li>これらの権利について訴える権利</li>
+              </ul>
+
+              </div>
         
-            <div>
-                <input type="checkbox" id="read-elect" name="read-elect" value="read-elect" />
-                <label for="read-elect">私は、CC0の条件および意図された法的効果を読み、理解しており、本作品にCC0を適用することをここに自発的に選択します。</label>
-            </div>
+             <div>
+
+              <input type="checkbox" id="read-elect" name="read-elect" value="read-elect" />
+
+              <label for="read-elect">
+              私は、CC0の条件と、CC0が意図する法的効果を読み、理解しました。<br />
+              そのうえで、この作品にCC0を適用することを、自分の意思で選びます。
+              </label>
+
+              </div>
 
         </fieldset>
         </li>
@@ -219,7 +238,10 @@
 
             <div>
                 <input type="checkbox" id="ownership" name="ownership" value="ownership" />
-                <label for="ownership">私は、本作品を所有しているか、本作品にライセンスを付与する権限を有しています。</label>
+                 <label for="ownership">
+                  私は、この作品を所有しています。<br />
+                  または、この作品にライセンスを付ける権限があります。
+                  </label>
             </div>
         
             <div>
@@ -239,7 +261,10 @@
         <fieldset id="attribution-details">
             <legend>クレジット表示の詳細（任意）</legend>
 
-            <span>これは、ほかの人があなたの作品についてあなたにクレジットを表示するのに役立ち、機械可読コードにも入力されます。</span>
+             <span>
+              ここに入力すると、ほかの人があなたの作品を紹介するときに、あなたの名前などを表示しやすくなります。
+              入力した内容は、機械が読み取るコードにも入ります。
+              </span>
 
             <div>
                 <label for="title">作品タイトル</label>
@@ -293,7 +318,7 @@
 
     <aside>
         <div id="empty">
-            <p>必須項目の入力を待っています...</p>
+             <p>必須項目の入力を待っています。</p>
         </div>
 
         <div id="tool-recommendation">
@@ -314,13 +339,16 @@
 
             <summary>ウェブサイト</summary>
 
-                <p>1つの作品にライセンスを付与する、または表示を付ける場合は、その横にコードを貼り付けてください。ページ全体またはブログにライセンスを付与する、または表示を付ける場合は、ページの下部にコードを貼り付けることができます。</p>
+                 <p>
+                  1つの作品にライセンスや表示を付ける場合は、その作品の横にコードを貼り付けてください。<br />
+                  ページ全体やブログにライセンスや表示を付ける場合は、ページの下部にコードを貼り付けることもできます。
+                  </p>
 
                 <article>
                     <details class="format" name="website" open>
                     <summary>リッチテキスト</summary>
 
-                        <p class="rich-text mark">[ここに文脈に応じて整形された表示を挿入]</p>
+                        <p class="rich-text mark">[ここに、文脈に合わせて整えた表示を入れる]</p>
 
                         <footer>
                             <div>
@@ -340,7 +368,7 @@
                     <details class="format" name="website">
                     <summary>HTML</summary>
 
-                        <textarea class="html mark" readonly="true">[ここに文脈に応じて整形された表示を挿入]</textarea>
+                        <textarea class="html mark" readonly="true">[ここに、文脈に合わせて整えた表示を入れる]</textarea>
 
                         <footer>
                             <div>
@@ -359,15 +387,19 @@
             </details>
             
             <details class="medium">
-            <summary>印刷作品またはメディア</summary>
+             <summary>印刷物またはメディア</summary>
 
-                <p>下のテキストをコピーし、印刷作品やプレゼンテーションのタイトルページおよび／または著作権ページ、またはメディアのクレジットに貼り付けてください。</p>
+                 <p>
+                  下のテキストをコピーしてください。<br />
+                  印刷物やプレゼンテーションでは、タイトルページや著作権ページに貼り付けてください。<br />
+                  メディアでは、クレジット欄に貼り付けてください。
+                  </p>
 
                 <article>
                 <details class="format" name="print" open>
                     <summary>プレーンテキスト</summary>
 
-                        <p class="plain-text mark">[ここに文脈に応じて整形された表示を挿入]</p>
+                        <p class="plain-text mark">[ここに、文脈に合わせて整えた表示を入れる]</p>
 
                         <footer>
                             <div>
@@ -391,23 +423,47 @@
 
             <details name="help">
                 <summary>クリエイティブ・コモンズ・ライセンスとは何ですか？</summary>
-                <p>クリエイティブ・コモンズ・ライセンスは、一般の人々に著作権の許諾を与えるのに役立つ法的ツールです。Creative Commonsの法的ツールには、<a href="https://creativecommons.org/licenses/" target="_blank" rel="noopener noreferrer">6種類のライセンス</a>と<a href="https://creativecommons.org/publicdomain/zero/1.0/deed.ja" target="_blank" rel="noopener noreferrer">1つのパブリック・ドメイン提供ツール</a>が含まれます。あなたの資料に7つの法的ツールのうちどれを適用しているのかを明示することが重要です。ライセンス選択ツールは、あなたに適したライセンスを決めるのに役立ちます。</p> 
-                <p>CCライセンスは、著作権の対象となるあらゆる種類の作品に適用できます。CCがライセンスを推奨していない唯一の作品の種類はコンピューターソフトウェアとハードウェアであり、これらについては代わりに標準的な自由ソフトウェアライセンスを推奨しています。すでにパブリック・ドメインにある作品については、<a href="https://creativecommons.org/about/pdm" target="_blank" rel="noopener noreferrer">パブリック・ドメイン・マーク</a>で表示することを推奨しています。作品の権利を保有しているが、それをパブリック・ドメインに置きたい場合は、選択ツールを使ってCC0を選択できます。</p>
+                 <p>
+                  クリエイティブ・コモンズ・ライセンスは、作品の利用を一般の人に許可するための法的なツールです。
+                  Creative Commonsの法的ツールには、<a href="https://creativecommons.org/licenses/" target="_blank" rel="noopener noreferrer">6種類のライセンス</a>と<a href="https://creativecommons.org/publicdomain/zero/1.0/deed.ja" target="_blank" rel="noopener noreferrer">1つのパブリック・ドメイン提供ツール</a>が含まれます。
+                  あなたの資料に、7つの法的ツールのうちどれを使っているかを、はっきり示すことが重要です。
+                  ライセンス選択ツールは、あなたに適したライセンスを決めるのに役立ちます。
+                  </p> 
+                 <p>
+                  CCライセンスは、著作権の対象となるあらゆる種類の作品に適用できます。
+                  CCがライセンスの利用を勧めていない作品は、コンピューターソフトウェアとハードウェアだけです。
+                  これらには、CCライセンスではなく、標準的な自由ソフトウェアライセンスを使うことをCCは勧めています。
+                  すでにパブリック・ドメインにある作品については、<a href="https://creativecommons.org/about/pdm" target="_blank" rel="noopener noreferrer">パブリック・ドメイン・マーク</a>で表示することを推奨しています。
+                  作品の権利を保有しているが、それをパブリック・ドメインに置きたい場合は、選択ツールを使ってCC0を選択できます。
+                  </p>
             </details>
 
             <details name="help">
                 <summary>クリエイティブ・コモンズ・ライセンスの適用方法</summary>
-                <p>選択した特定のCCライセンスで作品に表示を付けることで、あなたの作品にライセンスを付与できます。この表示は、著作権表示の中でライセンスを示す短いテキストのように単純なものでも、特定のライセンスに関連付けられたHTMLコードを使用してウェブサイトにライセンス情報を埋め込むような複雑なものでも構いません。該当するライセンスへのリンク（例：<a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank" rel="noopener noreferrer">https://creativecommons.org/licenses/by/4.0/</a>）を含めることを強く推奨します。</p>
+                 <p>
+                  作品に選んだCCライセンスを表示すると、その作品にライセンスを付けられます。
+                  表示は、短いテキストでも、ウェブサイトに貼り付けるHTMLコードでもかまいません。
+                  該当するライセンスへのリンク（例：<a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank" rel="noopener noreferrer">https://creativecommons.org/licenses/by/4.0/</a>）を含めることを強く推奨します。
+                  </p>
             </details>
 
             <details name="help">
-                <summary>何を考慮すべきですか？</summary>
-                <p>作品にライセンスを付与するクリエイターとして、<a href="https://wiki.creativecommons.org/wiki/Considerations_for_licensors_and_licensees#Considerations_for_licensors" target="_blank" rel="noopener noreferrer">ほかの考慮事項</a>に加えて、次のことを行うべきです。</p>
-                <ul>
-                    <li><a href="https://wiki.creativecommons.org/wiki/Considerations_for_licensors_and_licensees#Remember_the_license_may_not_be_revoked." target="_blank" rel="noopener noreferrer">一度CCライセンスを適用すると、取り消せないことを覚えておく</a>。</li>
-                    <li><a href="https://wiki.creativecommons.org/wiki/Considerations_for_licensors_and_licensees#Think_about_how_you_want_the_material_to_be_used." target="_blank" rel="noopener noreferrer">資料をどのように利用してほしいかに基づいてライセンスを選ぶ</a>。</li>
-                    <li><a href="https://wiki.creativecommons.org/wiki/Considerations_for_licensors_and_licensees#Specify_attribution_information_if_desired." target="_blank" rel="noopener noreferrer">あなたへのクレジット表示の方法（またはクレジット表示を望まないかどうか）を知らせる</a>。</li>
-                </ul>
+                 <summary>何を考える必要がありますか？</summary>
+                 <p>
+                  作品にライセンスを付ける前に、次のことを確認してください。
+                  </p>
+
+                  <ul>
+
+                  <li><a href="https://wiki.creativecommons.org/wiki/Considerations_for_licensors_and_licensees#Remember_the_license_may_not_be_revoked." target="_blank" rel="noopener noreferrer">一度CCライセンスを適用すると、取り消せないことを覚えておく</a>。</li>
+
+                  <li><a href="https://wiki.creativecommons.org/wiki/Considerations_for_licensors_and_licensees#Think_about_how_you_want_the_material_to_be_used." target="_blank" rel="noopener noreferrer">ほかの人に資料をどのように使ってほしいかを考えて、ライセンスを選ぶ</a>。</li>
+
+                  <li><a href="https://wiki.creativecommons.org/wiki/Considerations_for_licensors_and_licensees#Specify_attribution_information_if_desired." target="_blank" rel="noopener noreferrer">あなたへのクレジットをどのように表示してほしいかを知らせる</a>。</li>
+
+                  <li><a href="https://wiki.creativecommons.org/wiki/Considerations_for_licensors_and_licensees#Specify_attribution_information_if_desired." target="_blank" rel="noopener noreferrer">クレジット表示を望まない場合は、そのことを知らせる</a>。</li>
+
+                  </ul>
             </details>
 
             <details name="help">
@@ -421,20 +477,23 @@
             
                     <div>
                         <dt class="icon-attach cc-nc">営利目的での利用不可（NC／非営利）</dt>
-                        <dd>
-                            あなたの作品は非営利目的でのみ利用できます。
-                            <em>非営利とは、主として商業的な利得や金銭的報酬を意図したり、それらに向けられたりしていないことを意味します。</em>
-                        </dd>
+                         <dd>
+
+                          あなたの作品は、非営利目的でのみ利用できます。
+
+                          <em>非営利とは、主な目的が商業的な利益や金銭的な報酬ではないことを意味します。</em>
+
+                          </dd>
                     </div>
             
                     <div>
                         <dt class="icon-attach cc-sa">同じ条件で頒布（SA／継承）</dt>
-                        <dd>翻案物は同じ条件の下で共有する必要があります。</dd>
+                         <dd>翻案物は、元の作品と同じ条件で共有する必要があります。</dd>
                     </div>
 
                     <div>
                         <dt class="icon-attach cc-nd">改変不可（ND／改変禁止）</dt>
-                        <dd>改変された作品を共有・頒布することはできません。</dd>
+                         <dd>改変した作品を共有したり、配ったりすることはできません。</dd>
                     </div>
                 </dl>
             </details>
@@ -449,11 +508,17 @@
                   を確認してください。
                   ライセンスの内容は、各ライセンスの公式コモンズ証で確認できます。
                 </p>
-                <p>
-                  このサイトは、公式ではない日本語版のフォークです。
+                 <p>
+
+                  このサイトは、Creative Commons License Chooser を非公式に日本語化したフォークです。
+
+                  Creative Commons 公式が提供、承認、保証しているものではありません。
+
                   個別の事案について、法的な助言や公式サポートは行いません。
+
                   判断に迷う場合は、専門家またはCreative Commonsの公式情報を確認してください。
-                </p>
+
+                  </p>
             </details>
 
         </div>
@@ -464,10 +529,11 @@
 </main>
 
 <footer>
-<footer>
-  <a class="identity-logo" href="#main-content-marker">
-    ライセンス選択ツール
-  </a>
+   <a class="identity-logo" href="#main-content-marker">
+
+    クリエイティブ・コモンズ・ライセンスを選ぶツール
+
+    </a>
 
   <nav class="footer-menu" aria-label="フッターメニュー">
     <ul>
@@ -495,10 +561,13 @@
   </nav>
 
   <div class="license">
-    <p>
-      本サイトは、Creative Commons License Chooser の非公式日本語化フォークです。
-      Creative Commons 公式による提供、承認、保証を意味しません。
-    </p>
+     <p>
+
+      このサイトは、Creative Commons License Chooser を非公式に日本語化したフォークです。
+
+      Creative Commons 公式が提供、承認、保証しているものではありません。
+
+      </p>
 
     <p>
       原プロジェクト:
@@ -509,10 +578,13 @@
       ソースコードは MIT License に基づき利用・改変しています。
     </p>
 
-    <p>
-      Creative Commons、CC、および関連アイコンは Creative Commons の商標です。
+     <p>
+
+      Creative Commons、CC、関連アイコンは、Creative Commons の商標です。
+
       各ライセンス本文およびコモンズ証の内容は、Creative Commons 公式サイトで確認してください。
-    </p>
+
+      </p>
   </div>
 </footer>
 
@@ -562,7 +634,14 @@
     </header>
 
     <div class="description">
-        <p>このライセンスは、再利用者がクリエイターにクレジットを表示することを求めます。再利用者は、営利目的の場合も含め、あらゆる媒体や形式で資料を配布、リミックス、改変し、基にして新たな作品を作ることができます。</p>
+         <p>
+          このライセンスでは、再利用する人がクリエイターのクレジットを表示する必要があります。
+          </p>
+
+          <p>
+          再利用する人は、営利目的の場合も含め、どの媒体や形式でも資料を利用できます。
+          できることは、配布、リミックス、改変、元の資料をもとにした新しい作品の作成です。
+          </p>
     </div>
 
     <dl class="conditions-definitions">
@@ -593,7 +672,18 @@
     </header>
 
     <div class="description">
-        <p>このライセンスは、再利用者がクリエイターにクレジットを表示することを求めます。再利用者は、営利目的の場合も含め、あらゆる媒体や形式で資料を配布、リミックス、改変し、基にして新たな作品を作ることができます。ほかの人がその資料をリミックス、改変、または基にして新たな作品を作る場合、その改変された資料を同一の条件の下でライセンスしなければなりません。</p>
+         <p>
+          このライセンスでは、再利用する人がクリエイターのクレジットを表示する必要があります。
+          </p>
+
+          <p>
+          再利用する人は、営利目的の場合も含め、どの媒体や形式でも資料を利用できます。
+          できることは、配布、リミックス、改変、元の資料をもとにした新しい作品の作成です。
+          </p>
+
+          <p>
+          ほかの人がその資料をリミックス、改変、または元にして新しい作品を作る場合は、その改変後の資料にも同じ条件のライセンスを付ける必要があります。
+          </p>
     </div>
 
     <dl class="conditions-definitions">
@@ -604,7 +694,7 @@
 
         <div>
             <dt class="icon-attach cc-sa">SA</dt>
-            <dd>翻案物は同じ条件の下で共有する必要があります。</dd>
+             <dd>翻案物は、元の作品と同じ条件で共有する必要があります。</dd>
         </div>
     </dl>
 
@@ -629,7 +719,14 @@
     </header>
 
     <div class="description">
-        <p>このライセンスは、再利用者がクリエイターにクレジットを表示することを求めます。再利用者は、営利目的の場合も含め、あらゆる媒体や形式で、改変されていない形でのみ資料をコピーおよび頒布できます。</p>
+         <p>
+          このライセンスでは、再利用する人がクリエイターのクレジットを表示する必要があります。
+          </p>
+
+          <p>
+          再利用する人は、営利目的の場合も含め、どの媒体や形式でも資料をコピーして配ることができます。
+          ただし、資料を改変せず、そのままの形で使う必要があります。
+          </p>
     </div>
 
     <dl class="conditions-definitions">
@@ -641,7 +738,7 @@
 
         <div>
             <dt class="icon-attach cc-nd">ND</dt>
-            <dd>改変された作品を共有・頒布することはできません。</dd>
+             <dd>改変した作品を共有したり、配ったりすることはできません。</dd>
         </div>
     </dl>
 
@@ -666,7 +763,14 @@
     </header>
 
     <div class="description">
-        <p>このライセンスは、再利用者がクリエイターにクレジットを表示することを求めます。再利用者は、非営利目的に限り、あらゆる媒体や形式で資料を配布、リミックス、改変し、基にして新たな作品を作ることができます。</p>
+         <p>
+          このライセンスでは、再利用する人がクリエイターのクレジットを表示する必要があります。
+          </p>
+
+          <p>
+          再利用する人は、非営利目的に限り、どの媒体や形式でも資料を利用できます。
+          できることは、配布、リミックス、改変、元の資料をもとにした新しい作品の作成です。
+          </p>
     </div>
 
     <dl class="conditions-definitions">
@@ -677,10 +781,13 @@
 
         <div>
             <dt class="icon-attach cc-nc">NC</dt>
-            <dd>
-                あなたの作品は非営利目的でのみ利用できます。
-                <em>非営利とは、主として商業的な利得や金銭的報酬を意図したり、それらに向けられたりしていないことを意味します。</em>
-            </dd>
+             <dd>
+
+              あなたの作品は、非営利目的でのみ利用できます。
+
+              <em>非営利とは、主な目的が商業的な利益や金銭的な報酬ではないことを意味します。</em>
+
+              </dd>
         </div>
 
 
@@ -710,7 +817,18 @@
     </header>
 
     <div class="description">
-        <p>このライセンスは、再利用者がクリエイターにクレジットを表示することを求めます。再利用者は、非営利目的に限り、あらゆる媒体や形式で資料を配布、リミックス、改変し、基にして新たな作品を作ることができます。ほかの人がその資料を修正または改変する場合、その改変された資料を同一の条件の下でライセンスしなければなりません。</p>
+         <p>
+          このライセンスでは、再利用する人がクリエイターのクレジットを表示する必要があります。
+          </p>
+
+          <p>
+          再利用する人は、非営利目的に限り、どの媒体や形式でも資料を利用できます。
+          できることは、配布、リミックス、改変、元の資料をもとにした新しい作品の作成です。
+          </p>
+
+          <p>
+          ほかの人がその資料を修正または改変する場合は、その改変後の資料にも同じ条件のライセンスを付ける必要があります。
+          </p>
     </div>
 
     <dl class="conditions-definitions">
@@ -721,15 +839,18 @@
 
         <div>
             <dt class="icon-attach cc-nc">NC</dt>
-            <dd>
-                あなたの作品は非営利目的でのみ利用できます。
-                <em>非営利とは、主として商業的な利得や金銭的報酬を意図したり、それらに向けられたりしていないことを意味します。</em>
-            </dd>
+             <dd>
+
+              あなたの作品は、非営利目的でのみ利用できます。
+
+              <em>非営利とは、主な目的が商業的な利益や金銭的な報酬ではないことを意味します。</em>
+
+              </dd>
         </div>
 
         <div>
             <dt class="icon-attach cc-sa">SA</dt>
-            <dd>翻案物は同じ条件の下で共有する必要があります。</dd>
+             <dd>翻案物は、元の作品と同じ条件で共有する必要があります。</dd>
         </div>
     </dl>
 
@@ -757,7 +878,14 @@
     </header>
 
     <div class="description">
-        <p>このライセンスは、再利用者がクリエイターにクレジットを表示することを求めます。再利用者は、非営利目的に限り、あらゆる媒体や形式で、改変されていない形で資料をコピーおよび頒布できます。</p>
+         <p>
+          このライセンスでは、再利用する人がクリエイターのクレジットを表示する必要があります。
+          </p>
+
+          <p>
+          再利用する人は、非営利目的に限り、どの媒体や形式でも資料をコピーして配ることができます。
+          ただし、資料を改変せず、そのままの形で使う必要があります。
+          </p>
     </div>
 
     <dl class="conditions-definitions">
@@ -768,15 +896,18 @@
 
         <div>
             <dt class="icon-attach cc-nc">NC</dt>
-            <dd>
-                あなたの作品は非営利目的でのみ利用できます。
-                <em>非営利とは、主として商業的な利得や金銭的報酬を意図したり、それらに向けられたりしていないことを意味します。</em>
-            </dd>
+             <dd>
+
+              あなたの作品は、非営利目的でのみ利用できます。
+
+              <em>非営利とは、主な目的が商業的な利益や金銭的な報酬ではないことを意味します。</em>
+
+              </dd>
         </div>
 
         <div>
             <dt class="icon-attach cc-nd">ND</dt>
-            <dd>改変された作品を共有・頒布することはできません。</dd>
+             <dd>改変した作品を共有したり、配ったりすることはできません。</dd>
         </div>
     </dl>
 
@@ -785,15 +916,15 @@
 
 <template id="plain-text" class="mark">
   <p>
-    {{creator}}による「{{title}}」{{copyright}}は、{{toolName}}に{{typeAsVerb}}されています。
-    この{{type}}の内容を確認するには、{{toolURL}}をご覧ください。
+     {{creator}}による「{{title}}」{{copyright}}は、{{toolName}}に{{typeAsVerb}}されています。
+    {{type}}の内容は、{{toolURL}}で確認できます。
   </p>
 </template>
 
 <template id="plain-text-generic" class="mark">
   <p>
     この作品は、{{toolName}}に{{typeAsVerb}}されています。
-    この{{type}}の内容を確認するには、{{toolURL}}をご覧ください。
+    {{type}}の内容は、{{toolURL}}で確認できます。
   </p>
 </template>
 

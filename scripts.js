@@ -223,7 +223,7 @@ function clearStepsAfterCursor(fieldsets, state) {
                 element.querySelector("#tool").value = "noselect";
             }
 
-            if (index != 1 | index != 8) {
+            if (index !== 1 && index !== 8) {
 
                 let inputs = element.querySelectorAll('input');
                 inputs.forEach((input, i) => {

@@ -351,7 +351,7 @@ function renderMarkingFormats(state) {
     let attribution = state.props.attribution;
 
     let type = "ライセンス";
-    let typeAsVerb = "基づきライセンス";
+    let typeAsVerb = "の条件で提供されています";
     let copyright = "";
 
     if (attribution.workCreationYear != "" && attribution.workCreationYear != "1999") {
@@ -360,7 +360,7 @@ function renderMarkingFormats(state) {
 
     if (state.props.tool == "cc-0") {
       type = "法的ツール";
-      typeAsVerb = "よりパブリックドメイン提供として表示";
+      typeAsVerb = "により、パブリック・ドメインに提供されています";
       copyright = "";
     }
 
